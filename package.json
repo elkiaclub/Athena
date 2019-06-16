@@ -1,17 +1,26 @@
 {
-  "name": "Athena",
-  "version": "1.0.0",
-  "description": "the elkia api",
+  "name": "athena",
+  "version": "0.0.1",
+  "description": "A GraphQL API with schemaless MongoDB that looks over Elkia",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: we'll find out in production\" && exit 1",
+    "start": "node -r esm index.js"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elkiaclub/Athena.git"
+  },
+  "license": "SEE LICENSE IN LICENSE FILE",
+  "bugs": {
+    "url": "https://github.com/elkiaclub/Athena/issues"
+  },
+  "homepage": "https://github.com/elkiaclub/Athena#readme",
   "dependencies": {
-    "mongorito": "^3.0.4",
-    "restify": "^8.0.0",
-    "restify-errors": "^6.1.1",
-    "restify-router": "^0.5.1"
+    "apollo-server": "^2.5.1",
+    "apollo-server-express": "^2.5.1",
+    "esm": "^3.2.25",
+    "graphql": "^14.3.1",
+    "mongorito": "^3.0.4"
   }
 }

@@ -1,11 +1,28 @@
-const restify = require('restify')
-const errs = require('restify-errors')
-const routes = require('./routes/index')
+import { ApolloServer } from 'apollo-server-express'
+import express from 'express'
+import { models, resolvers } from './resolvers'
+import { typeDefs } from './typeDefs'
+import { database } from './db'
 
-var server = restify.createServer()
-// add all routes registered in the router to this server instance
-routes.applyRoutes(server)
+const startServer = async () => {
+  const app = express()
 
-server.listen(8080, function () {
-  console.log('%s listening at %s', server.name, server.url)
-})
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    tracing: true
+  })
+
+  server.applyMiddleware({ app })
+
+  await database.connect()
+  Object.keys(models).forEach(model => {
+    database.register(models[model])
+  })
+
+  app.listen({ port: 4000 }, () =>
+    console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+  )
+}
+
+startServer()
