@@ -1,6 +1,7 @@
 import { ApolloServer, gql } from 'apollo-server-express'
 import express from 'express'
 import mongoose from 'mongoose'
+import Minecraft from './Minecraft'
 import Quotes from './Quotes'
 import Members from './Members'
 import { typeDefs } from './typeDefs'
@@ -9,8 +10,8 @@ const startServer = async () => {
   const app = express()
 
   const server = new ApolloServer({
-    typeDefs: [typeDefs, Quotes.typeDef],
-    resolvers: [Quotes.resolvers]
+    typeDefs: [typeDefs, Quotes.typeDef, Minecraft.typeDef],
+    resolvers: [Quotes.resolvers, Minecraft.resolvers]
   })
 
   server.applyMiddleware({ app })
