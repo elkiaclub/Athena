@@ -1,26 +1,25 @@
 {
-  "name": "athena",
-  "version": "0.0.1",
-  "description": "A GraphQL API with schemaless MongoDB that looks over Elkia",
+  "name": "graphql-mongo-server",
+  "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: we'll find out in production\" && exit 1",
-    "start": "node -r esm index.js"
+    "start": "node index.js",
+    "dev": "nodemon -r esm index.js",
+    "deploy": "gcloud app deploy && gcloud app logs tail -s default"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/elkiaclub/Athena.git"
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.18.11"
   },
-  "license": "SEE LICENSE IN LICENSE FILE",
-  "bugs": {
-    "url": "https://github.com/elkiaclub/Athena/issues"
-  },
-  "homepage": "https://github.com/elkiaclub/Athena#readme",
   "dependencies": {
-    "apollo-server": "^2.5.1",
-    "apollo-server-express": "^2.5.1",
+    "apollo-server": "^2.7.0",
+    "apollo-server-express": "^2.4.8",
     "esm": "^3.2.25",
-    "graphql": "^14.3.1",
-    "mongorito": "^3.0.4"
+    "express": "^4.16.4",
+    "graphql": "^14.2.1",
+    "mongoose": "^5.6.6"
   }
 }
